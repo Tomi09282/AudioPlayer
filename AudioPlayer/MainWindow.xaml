@@ -1,0 +1,72 @@
+﻿<Window x:Class="AudioPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AudioPlayer"
+        mc:Ignorable="d"
+        Title="Főablak" Height="800" Width="1200"
+        Background="#121212">
+    <Window.Resources>
+        <!-- Spotify Colors -->
+        <SolidColorBrush x:Key="SpotifyGreen" Color="#1DB954"/>
+        <SolidColorBrush x:Key="SpotifyBackground" Color="#121212"/>
+        <SolidColorBrush x:Key="SpotifyForeground" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="SpotifySecondaryForeground" Color="#B3B3B3"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Uploaded Songs Playlist -->
+        <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource SpotifyBackground}">
+            <TextBlock Text="Feltöltött Dalok" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{StaticResource SpotifyForeground}" Margin="10"/>
+            <ListBox Name="UploadedSongsBox" Width="400" Height="300" Margin="10" Background="{StaticResource SpotifyBackground}" Foreground="{StaticResource SpotifyForeground}"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                <Button Name="UploadButton" Content="Feltöltés" Width="75" Margin="5" Click="UploadButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="AddToPlaylistButton" Content="Hozzáadás a Lejátszási Listához" Width="150" Margin="5" Click="AddToPlaylistButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Personal Playlist -->
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource SpotifyBackground}">
+            <TextBlock Text="Személyes Lejátszási Lista" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{StaticResource SpotifyForeground}" Margin="10"/>
+            <ListBox Name="PersonalPlaylistBox" Width="400" Height="300" Margin="10" Background="{StaticResource SpotifyBackground}" Foreground="{StaticResource SpotifyForeground}"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                <Button Name="DeleteFromPlaylistButton" Content="Törlés" Width="75" Margin="5" Click="DeleteFromPlaylistButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="PlayFromPlaylistButton" Content="Lejátszás" Width="75" Margin="5" Click="PlayFromPlaylistButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="SavePlaylistButton" Content="Mentés" Width="75" Margin="5" Click="SavePlaylistButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="LoadPlaylistButton" Content="Betöltés" Width="75" Margin="5" Click="LoadPlaylistButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Player Controls -->
+        <StackPanel Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Background="{StaticResource SpotifyBackground}">
+            <TextBlock Text="Most Játszik" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{StaticResource SpotifyForeground}" Margin="10"/>
+            <TextBlock Name="SongInfo" Text="Előadó - Cím (Hossz)" HorizontalAlignment="Center" Foreground="{StaticResource SpotifySecondaryForeground}" Margin="0,5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                <Button Name="PreviousButton" Content="Előző" Width="75" Margin="5" Click="PreviousButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="PlayButton" Content="Lejátszás" Width="50" Margin="5" Click="PlayButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="PauseButton" Content="Szünet" Width="50" Margin="5" Click="PauseButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="StopButton" Content="Leállítás" Width="50" Margin="5" Click="StopButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+                <Button Name="NextButton" Content="Következő" Width="75" Margin="5" Click="NextButton_Click" Background="{StaticResource SpotifyGreen}" Foreground="{StaticResource SpotifyForeground}"/>
+            </StackPanel>
+
+            <Slider Name="ProgressSlider" Width="400" Margin="10" Background="{StaticResource SpotifyGreen}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,10">
+                <TextBlock Name="CurrentTime" Text="0:00" HorizontalAlignment="Left" Margin="10,0" Foreground="{StaticResource SpotifySecondaryForeground}"/>
+                <TextBlock Name="TotalTime" Text="0:00" HorizontalAlignment="Right" Margin="10,0" Foreground="{StaticResource SpotifySecondaryForeground}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                <Slider Name="VolumeSlider" Width="200" Margin="10" Background="{StaticResource SpotifyGreen}"/>
+                <TextBlock Text="Hangerő" HorizontalAlignment="Center" Margin="0,5" Foreground="{StaticResource SpotifyForeground}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
