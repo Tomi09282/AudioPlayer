@@ -8,7 +8,6 @@
         Title="Főablak" Height="800" Width="1200"
         Background="#121212">
     <Window.Resources>
-        <!-- Spotify Colors -->
         <SolidColorBrush x:Key="SpotifyGreen" Color="#1DB954"/>
         <SolidColorBrush x:Key="SpotifyBackground" Color="#121212"/>
         <SolidColorBrush x:Key="SpotifyForeground" Color="#FFFFFF"/>
@@ -20,7 +19,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Uploaded Songs Playlist -->
         <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource SpotifyBackground}">
             <TextBlock Text="Feltöltött Dalok" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{StaticResource SpotifyForeground}" Margin="10"/>
             <ListBox Name="UploadedSongsBox" Width="400" Height="300" Margin="10" Background="{StaticResource SpotifyBackground}" Foreground="{StaticResource SpotifyForeground}"/>
@@ -31,7 +29,6 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- Personal Playlist -->
         <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource SpotifyBackground}">
             <TextBlock Text="Személyes Lejátszási Lista" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{StaticResource SpotifyForeground}" Margin="10"/>
             <ListBox Name="PersonalPlaylistBox" Width="400" Height="300" Margin="10" Background="{StaticResource SpotifyBackground}" Foreground="{StaticResource SpotifyForeground}"/>
@@ -44,7 +41,6 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- Player Controls -->
         <StackPanel Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Background="{StaticResource SpotifyBackground}">
             <TextBlock Text="Most Játszik" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{StaticResource SpotifyForeground}" Margin="10"/>
             <TextBlock Name="SongInfo" Text="Előadó - Cím (Hossz)" HorizontalAlignment="Center" Foreground="{StaticResource SpotifySecondaryForeground}" Margin="0,5"/>
